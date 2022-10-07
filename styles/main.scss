@@ -1,0 +1,22 @@
+@import '_reset';
+@import '_header';
+@import '_steps';
+@import '_peoples';
+@import '_photos';
+@import '_search';
+@import '_footer';
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Montserrat-VariableFont_wght.ttf');
+}
+
+body{
+    font-family: 'Montserrat';
+    display: flex;
+    flex-direction: column;
+}
+
+hr{
+    border: 2px red solid;
+}

@@ -1,0 +1,143 @@
+@mixin size ($w, $h) {
+    width: $w;
+    height: $h;
+}
+
+@mixin font ($cl , $fs, $fw, $fsz, $ta) {
+    color: $cl;
+    font-style: $fs;
+    font-weight: $fw;
+    font-size: $fsz;
+    text-align: $ta;
+}
+
+$text-color-main: white;
+
+%link-white {
+    text-decoration: none;
+    color: white;
+}
+
+%flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-container {
+    @include size(100%, 540px);
+
+    @media screen and (min-width:720px) {
+        @include size(100%, 768px);
+    }
+
+    background-image: url('../pics/Background.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 14% auto;
+    place-items: center start;
+    background-color: cornflowerblue;
+
+    &__menu {
+        @include size(100%, 100%);
+        @extend %flex-center;
+        margin: 0 auto;
+        grid-column: 1;
+        grid-row: 1/2;
+        padding: 30px;
+
+        &__buttons {
+            @extend %flex-center;
+        }
+
+        @media screen and (min-width:720px) {
+            justify-content: space-between;
+        }
+
+        &__logo {
+            @include font($text-color-main, normal, 700, 20px, center);
+            display: none;
+
+            @media screen and (min-width:720px) {
+                display: block;
+            }
+        }
+
+        font: {
+            style: normal;
+            weight: 400;
+            size: 14px;
+        }
+
+        //Buttons 
+        &__button {
+            @extend %link-white;
+        }
+
+        &_lined {
+            @include size(90px, 35px);
+            @extend %flex-center;
+            border: 2px solid #FFFFFF;
+            border-radius: 40px;
+            margin-left: 20px;
+
+        }
+
+
+    }
+
+    &__textbox {
+        @include size(100%, 100%);
+        @extend %flex-center;
+        flex-direction: column;
+        justify-content: space-evenly;
+        margin: 0 auto;
+        padding: 45px;
+
+        // Text header
+        &__text {
+            @include font($text-color-main, normal, 300, 18px, center);
+
+            @media screen and (min-width:720px) {
+                font-size: 24px;
+            }
+
+            &_logo {
+                @include font($text-color-main, normal, 700, 20px, center);
+
+                @media screen and (min-width:720px) {
+                    display: none;
+                }
+            }
+
+            &_heading {
+                @include font($text-color-main, normal, 700, 30px, center);
+
+                @media screen and (min-width:720px) {
+                    font-size: 52px;
+                }
+            }
+
+            &_link {
+                @extend %link-white;
+                @include font($text-color-main, normal, 700, 14px, center);
+                display: block;
+                width: 100%;
+                height: 100%;
+                line-height: 40px;
+            }
+
+        }
+
+        // Link wrap
+        &__link {
+            @include size(280px, 40px);
+            @extend %flex-center;
+            background: #FF4E50;
+            border-radius: 40px;
+        }
+    }
+}
